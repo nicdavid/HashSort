@@ -48,6 +48,43 @@ class List:
         self.length += 1
         return True
 
+    def insert_sorted(self, li):
+        node = self._head
+        if self._head == None:
+            self._head = li
+        elif self._tail == None:
+            if li.get_value() < self._head.get_value():
+                self._head.set_previous(li)
+                li.set_next(self._head)
+                self._tail = self._head
+                self._head = li
+            else:
+                self._tail = li
+                self._head.set_next(li)
+                self._tail.set_previous(self._head)
+        elif li.get_value() < self._head.get_value():
+            li.set_next(self._head)
+            self._head.set_previous(li)
+            self._head = li
+        elif li.get_value() >= self._tail.get_value():
+            li.set_previous(self._tail)
+            self._tail.set_next(li)
+            self._tail = li
+        else:
+            node = node.get_next()
+            while node != None:
+                if li.get_value() < node.get_value():
+                    prev = node.get_previous()
+                    newnxt = node
+                    li.set_next(newnxt)
+                    newnxt.set_previous(li)
+                    li.set_previous(prev)
+                    prev.set_next(li)
+                    break
+                node = node.get_next()
+        self.length += 1
+        return True
+
     def get_items(self):
         """
         Builds an array of the values in the list.

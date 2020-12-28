@@ -17,5 +17,7 @@ def verify_sort(a):
             out = "[ERROR] Values have not been sorted properly!"
             num_err += 1
         i += 1
+    if num_err > 0:
+        raise Exception(out + " [" + str(num_err) + "]")
     print(out + " [" + str(num_err) + "]")
-    return num_err == 0
+    return True

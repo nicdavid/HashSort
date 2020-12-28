@@ -263,7 +263,7 @@ class HashTable:
             boolean: whether the sorting succeeds or not
         """
         # If the hash map tree contains no values don't try to sort it
-        if self.length == 0:
+        if self.length <= 1:
             return True
 
         # Iterate through all of the elements of the table list

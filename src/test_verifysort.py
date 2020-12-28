@@ -8,15 +8,17 @@ class TestList(unittest.TestCase):
             verify_sort(["a", "c", "d"]),
             True,
         )
-        self.assertEqual(
-            verify_sort(["a", "e", "d"]),
-            False,
+        self.assertRaises(
+            Exception,
+            verify_sort,
+            ["a", "e", "d"]
         )
         self.assertEqual(
             verify_sort([1, 2, 3]),
             True,
         )
-        self.assertEqual(
-            verify_sort([1, 8, 4]),
-            False,
+        self.assertRaises(
+            Exception,
+            verify_sort,
+            [1, 8, 4],
         )

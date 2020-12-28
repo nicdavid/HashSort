@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A sorting technique that makes use of hashing/hash maps to achieve linear time complexity.",
   "scripts": {
-    "test": "npm run unit:listitem && npm run unit:list && npm run unit:insertionsort && npm run unit:quicksort && npm run unit:mergesort && npm run unit:hashtable && npm run unit:verifysort",
+    "test": "npm run unit:listitem && npm run unit:list && npm run unit:insertionsort && npm run unit:quicksort && npm run unit:mergesort && npm run unit:hashtable && npm run unit:verifysort && npm run unit:hashsort",
     "unit:list": "cd ./src && python -m unittest -b test_list.py",
     "unit:listitem": "cd ./src && python -m unittest -b test_listitem.py",
     "unit:insertionsort": "cd ./src && python -m unittest -b test_insertionsort.py",
@@ -11,6 +11,7 @@
     "unit:mergesort": "cd ./src && python -m unittest -b test_mergesort.py",
     "unit:hashtable": "cd ./src && python -m unittest -b test_hashtable.py",
     "unit:verifysort": "cd ./src && python -m unittest -b test_verifysort.py",
+    "unit:hashsort": "cd ./src && python -m unittest -b test_hashsort.py",
     "demo": "python src/run_sorts.py"
   },
   "repository": {

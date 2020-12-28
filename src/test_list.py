@@ -45,3 +45,40 @@ class TestList(unittest.TestCase):
         self.list.append(ListItem("1"))
         self.list.append(ListItem("2"))
         self.assertEqual(self.list.get_string(), "0, 1, 2")
+
+    def test_insert_sorted_head(self):
+        # add to head
+        self.assertEqual(self.list.insert_sorted(ListItem("c")), True)
+        self.assertEqual(self.list.length, 1)
+        self.assertEqual(self.list.get_items(), ["c"])
+
+        # add to head
+        self.list.insert_sorted(ListItem("b"))
+        self.assertEqual(self.list.get_items(), ["b", "c"])
+
+        # add to head
+        self.list.insert_sorted(ListItem("a"))
+        self.assertEqual(self.list.get_items(), ["a", "b", "c"])
+
+    def test_insert_sorted_tail(self):
+        # add to head
+        self.assertEqual(self.list.insert_sorted(ListItem("c")), True)
+        self.assertEqual(self.list.length, 1)
+        self.assertEqual(self.list.get_items(), ["c"])
+
+        # add to tail
+        self.list.insert_sorted(ListItem("d"))
+        self.assertEqual(self.list.get_items(), ["c", "d"])
+
+        # add to tail
+        self.list.insert_sorted(ListItem("e"))
+        self.assertEqual(self.list.get_items(), ["c", "d", "e"])
+
+    def test_insert_sorted_tail(self):
+        # add items
+        self.list.insert_sorted(ListItem("q"))
+        self.list.insert_sorted(ListItem("g"))
+        self.list.insert_sorted(ListItem("e"))
+        self.list.insert_sorted(ListItem("p"))
+        self.list.insert_sorted(ListItem("a"))
+        self.assertEqual(self.list.get_items(), ["a", "e", "g", "p", "q"])
