@@ -1,7 +1,5 @@
 # Hash Sort
 
-## Hypothesis
-
 The hypothesis for this project is whether or not hashing could be a valid strategy in achieving a linear time sorting algorithm. Since adding to a hash table is an `O(1)` operation then adding `n` items to a hash table would be a linear operation or `O(n)`. Since the sorting functionality is provided at the time of adding an item, then technically, the sorting can be extrapolated to be `O(n)` as well. The major drawback of this approach is that it requires a large amount of memory to be utilized to its fullest potential. This memory usage can be calculated as `# supported characters ^ accuracy` where the number of supported characters is the number of characters that could be sorted upon (ie. 36 for alphanumerics) and the accuracy is the number of characters in each string to generate a hash for. For example, to sort a list of alphanumerics with a maximum length of 4, the total space utilization will be `36^4=1,679,616`.
 
 ### Use Cases
@@ -18,38 +16,46 @@ The hypothesis for this project is whether or not hashing could be a valid strat
 
 ## Sort timings (10 run average)
 
-Parameters:
-`STRING_LENGTH=12`
-`ACCURACY=6`
+Parameters: `STRING_LENGTH=12` `ACCURACY=6`
 
 NOTE: For consistency, the times below are collected using alphanumeric values `[0-9a-z]` as the current implementation of the hash sort only handles alphanumerics.
 
-1,000 strings
-Insertion sort -- 0.32 seconds
-Quick sort -- 0.003 seconds
-Merge sort -- 0.011 seconds
-Hash sort -- 0.580 seconds
+<br>
 
-10,000 strings
-Insertion sort -- 58.096 seconds
-Quick sort -- 0.077 seconds
-Merge sort -- 0.285 seconds
-Hash sort -- 0.747 seconds
+| Sort      | Values (n) | Average (s) |
+| --------- | ---------: | ----------: |
+| Insertion |      1,000 |    0.330017 |
+| Insertion |     10,000 |    58.09600 |
+| Insertion |    100,000 |         --- |
+| Insertion |  1,000,000 |         --- |
+| Insertion | 10,000,000 |         --- |
 
-100,000 strings
-Insertion sort -- ...
-Quick sort -- 2.675 seconds
-Merge sort -- 5.497 seconds
-Hash sort -- 2.027 seconds
+<br>
 
-1,000,000 strings
-Insertion sort -- ...
-Quick sort -- 36.726 seconds
-Merge sort -- 10.961 seconds
-Hash sort -- 8.791 seconds
+| Sort  | Values (n) | Average (s) |
+| ----- | ---------: | ----------: |
+| Quick |      1,000 |    0.006882 |
+| Quick |     10,000 |    0.219812 |
+| Quick |    100,000 |    2.591667 |
+| Quick |  1,000,000 |   37.517032 |
+| Quick | 10,000,000 |  510.159192 |
 
-10,000,000 strings
-Insertion sort -- ...
-Quick sort -- 509.120 seconds
-Merge sort -- ...
-Hash sort -- 82.122 seconds
+<br>
+
+| Sort  | Values (n) | Average (s) |
+| ----- | ---------: | ----------: |
+| Merge |      1,000 |    0.010272 |
+| Merge |     10,000 |    0.474531 |
+| Merge |    100,000 |    5.238785 |
+| Merge |  1,000,000 |   60.483092 |
+| Merge | 10,000,000 |         --- |
+
+<br>
+
+| Sort | Values (n) | Average (s) |
+| ---- | ---------: | ----------: |
+| Hash |      1,000 |    0.571172 |
+| Hash |     10,000 |    0.720872 |
+| Hash |    100,000 |    2.074849 |
+| Hash |  1,000,000 |    9.441541 |
+| Hash | 10,000,000 |   83.536418 |
